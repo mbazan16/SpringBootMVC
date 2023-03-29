@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Departamentos</title>
+</head>
+<body>
+<h2>Departamentos</h2>
+<ul>
+<li th:each="dep:${pepe}">
+ 	<span th:text="${dep}"></span>
+    <a  th:href="@{'/departamento/'+${dep.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
+ </li>
+</ul>
+</body>
+</html>
