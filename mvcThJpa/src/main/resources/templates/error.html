@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Error</title>
+</head>
+<body>
+<h2>Error</h2>
+<div th:if="${mensaje}">
+    <h3>Name:</h3><h3 th:text="${mensaje}"></h3>
+</div>
+<table>
+    <tr>
+        <td>Date</td>
+        <td th:text="${timestamp}"/>
+    </tr>
+    <tr>
+        <td>Path</td>
+        <td th:text="${path}"/>
+    </tr>
+    <tr>
+        <td>Error</td>
+        <td th:text="${error}"/>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td th:text="${status}"/>
+    </tr>
+    <tr>
+        <td>Message</td>
+        <td th:text="${message}"/>
+    </tr>
+    <tr>
+        <td>Exception</td>
+        <td th:text="${exception}"/>
+    </tr>
+    <tr>
+        <td>Trace</td>
+        <td>
+            <pre th:text="${trace}"/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
