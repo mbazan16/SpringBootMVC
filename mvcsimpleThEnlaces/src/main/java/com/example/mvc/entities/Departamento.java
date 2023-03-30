@@ -5,7 +5,7 @@ public class Departamento {
 	private Integer id;	
 	private String nombre;	
 	private Integer managerId;		
-	private Integer locationId;
+	private Integer  locationId;
 	
 	
 	
