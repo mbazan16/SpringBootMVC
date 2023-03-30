@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.mvc.entities.Departamento;
 
-@Controller
+@Controller 
 @RequestMapping("/departamentos")
 public class ControladorDepartamentos {
 	
