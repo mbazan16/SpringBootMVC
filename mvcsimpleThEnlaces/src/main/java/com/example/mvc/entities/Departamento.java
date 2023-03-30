@@ -13,8 +13,6 @@ public class Departamento {
 		
 	}
 
-
-
 	public Integer getId() {
 		return id;
 	}
