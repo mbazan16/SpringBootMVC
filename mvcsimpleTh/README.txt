@@ -34,4 +34,4 @@ En este caso el nombre es "pagina".
 # TEMPLATES
 Las templates Thymeleaf se encuentran en el directorio src/main/resources/templates
 En  este proyecto "pagina.html" es nuestra plantilla y todavía no tiene código thymeleaf
-
+                    
