@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Region</title>
+</head>
+<body>
+<h2>Region</h2>
+<div>
+<p>Id: <span th:text="${region.id}"></span></p>
+<p>Nombre: <span th:text="${region.nombre}"></span></p>
+<p>Jefe de region: <span th:text="${region.managerId}"></span></p>
+<p>Direccion: <span th:text="$region.direccionId}"></span></p>
+</div>
+<h2>Modificar Region</h2>
+<div>
+<form action="#" th:action="@{/regiones}" th:object="${region}" method="post">
+    	<p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+        <p>Jefe de region: <input type="text" th:field="*{managerId}" /></p>
+        <p>Direccion: <input type="text" th:field="*{regionId}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+<h2> <a  th:href="@{/regiones}">Volver a regiones</a></h2>
+</body>
+</html>
