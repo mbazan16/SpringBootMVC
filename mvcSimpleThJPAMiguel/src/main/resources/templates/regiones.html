@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Regiones</title>
+</head>
+<body>
+<h2>Regiones</h2>
+<div>
+<ul>
+<li th:each="reg:${regiones}">
+ 	<span th:text="${reg.nombre}"></span>
+    <a  th:href="@{'/region/'+${reg.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
+ </li>
+</ul>
+</div>
+<h2>Crear Region</h2>
+<div>
+<form action="#" th:action="@{/regiones}"  method="post">
+    	<p>Id: <input type="text" name="id" /></p>
+        <p>Nombre: <input type="text" name="nombre" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+</body>
+</html>
