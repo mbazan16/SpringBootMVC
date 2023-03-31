@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Region</title>
+</head>
+<body>
+<h2>Region</h2>
+<div>
+<p>Id: <span th:text="${region.id}"></span></p>
+<p>Nombre: <span th:text="${region.nombre}"></span></p>
+</div>
+<h2>Modificar Region</h2>
+<div>
+<form action="#" th:action="@{/regiones}" th:object="${region}" method="post">
+    	<p>Id: <input type="text" th:field="*{id}" /></p>
+        <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+<h2> <a  th:href="@{/regiones}">Volver a regiones</a></h2>
+</body>
+</html>
