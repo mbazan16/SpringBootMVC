@@ -3,10 +3,12 @@ package com.example.mvc.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="REGIONS")
+@NamedQuery(name ="Region.findAll",query = "SELECT r FROM Region r")
 public class Region {
 	
 	

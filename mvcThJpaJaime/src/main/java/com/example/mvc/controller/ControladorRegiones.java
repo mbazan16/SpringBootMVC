@@ -17,13 +17,10 @@ import com.example.mvc.bussiness.ServicioRegion;
 import com.example.mvc.common.exceptions.ServicioException;
 import com.example.mvc.entities.Region;
 
+@Controller
+@RequestMapping("/regiones")
 public class ControladorRegiones {
-	
-	
-	@Controller
-	@RequestMapping("/regiones")
-	public class ControladorDepartamentos {
-		
+
 		@Autowired
 		ServicioRegion servicio;
 		
@@ -72,6 +69,5 @@ public class ControladorRegiones {
 
 			return "error";
 	    }
-	}
 
 }

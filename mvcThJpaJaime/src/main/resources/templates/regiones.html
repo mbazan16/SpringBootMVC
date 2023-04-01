@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Regiones</title>
-
+	<meta charset="ISO-8859-1">
+	<title>Regiones</title>
 </head>
-<body>
 
+<body>
+	<h2>Regiones</h2>
 	<ul>
-		<li th:each="region::@{regiones}">
-			<div th:text=></div>
+		<li th:each="region:${regiones}">
+			<div th:text="${region.nombre}"></div>
+			<div th:text="${region.id}"></div>
 		</li>
 	</ul>
+
+	<h2>Crear Region</h2>
+	<form th:action="@{/regiones}" method="post">
+		<label>Nombre Region</label>
+		<input type="text" name="nombre">
+		<br>
+
+		<label>Id Region</label>
+		<input type="text" name="id">
+		<br>
+
+		<input type="submit" value="Submit">
+
+	</form>
 
 </body>
 </html>
