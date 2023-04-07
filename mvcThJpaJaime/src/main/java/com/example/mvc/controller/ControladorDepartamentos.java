@@ -25,7 +25,7 @@ public class ControladorDepartamentos {
 	
 	@GetMapping
 	public String paginaDepartamentos(Model model) throws Exception {
-		List<Departamento> departamentos = servicio.listDepartamentos();
+		List<Departamento> departamentos = servicio.list();
 		
 		model.addAttribute("departamentos", departamentos);	
 		return "departamentos";
@@ -33,7 +33,7 @@ public class ControladorDepartamentos {
 	
 	@GetMapping("/{id}")
 	public String paginaDepartamento(@PathVariable Integer id,Model model) throws Exception {
-		Departamento departamento = servicio.conseguirDepartamento(id);
+		Departamento departamento = servicio.conseguirPorId(id);
 		
 		model.addAttribute("departamento", departamento);	
 		return "departamento";
@@ -42,7 +42,7 @@ public class ControladorDepartamentos {
 	@PostMapping
 	public String grabarDepartamento(@ModelAttribute Departamento departamento,Model model) throws Exception {
 		
-		departamento=servicio.grabarDepartamento(departamento);
+		departamento=servicio.grabar(departamento);
 		
 		model.addAttribute("departamento", departamento);	
 		return "departamento";
@@ -52,7 +52,7 @@ public class ControladorDepartamentos {
 	@GetMapping("/d/{id}")
 	public String eliminarDepartamento(@PathVariable Integer id,Model model) throws Exception {
 		
-		servicio.eliminarDepartamento(id);
+		servicio.eliminarPorId(id);
 		
 		
 		return "redirect:/departamentos";	
