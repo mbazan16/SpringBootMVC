@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+body{
+    background-size:cover;
+    background-blend-mode: luminosity;
+    background-repeat:no-repeat;
+    
+    background-image: url("https://www.office-coffee.co.uk/core/images/share-image.jpg");
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#hr{
+    font-size: 70px;
+	text-align: center;
+    font-weight: 600 ;
+}
+
+#tabla{   
+    margin: auto;
+    border-spacing: 15px;
+    
+}
+
+tr {
+    height: 200px;
+}
+
+button{
+    border: none;
+}
+
+.cajas{
+    
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width:200px;
+    height: 66px;
+    background-color: rgba(227, 227, 227, 0.326);
+
+    text-align: center;
+    font-size:150%;
+    size: px;
+}
+
+.cajas:hover{
+    background-color: rgba(227, 227, 227, 0.463);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+}

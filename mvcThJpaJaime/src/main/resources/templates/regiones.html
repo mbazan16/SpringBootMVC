@@ -3,19 +3,25 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Regiones</title>
+	<link rel="stylesheet" href="/general.css" />
 </head>
 
 <body>
+<div class="container">
+
 	<h2>Regiones</h2>
 	<ul>
 		<li th:each="region:${regiones}">
-			<div th:text="${region.nombre}"></div>
-			<div th:text="${region.id}"></div>
+		<div class="elementos">
+			<div th:text="${region.nombre}"></div>		
+		</div>
+			
 		</li>
 	</ul>
 
-	<h2>Crear Region</h2>
-	<form th:action="@{/regiones}" method="post">
+	
+	<form id="formulario" th:action="@{/regiones}" method="post">
+		<h2>Crear Region</h2>
 		<label>Nombre Region</label>
 		<input type="text" name="nombre">
 		<br>
@@ -27,6 +33,6 @@
 		<input type="submit" value="Submit">
 
 	</form>
-
+</div>
 </body>
 </html>

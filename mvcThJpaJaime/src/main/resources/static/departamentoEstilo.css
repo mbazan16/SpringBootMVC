@@ -1,0 +1,58 @@
+@charset "ISO-8859-1";
+
+body{
+    height: 100%;
+    background-size:cover;
+    background-blend-mode: luminosity;
+    background-repeat:no-repeat;
+    
+    background-image: url("https://www.office-coffee.co.uk/core/images/share-image.jpg");
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.caja{
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+    background-color: rgba(227, 227, 227, 0.326);
+    width: 40%;
+    text-align: center;
+    font-size:100%;
+    size: px;
+}
+
+#listaDepartamentos{
+    margin: auto;
+
+    width: 40%;
+    text-align: center;
+    font-size:40px;
+    
+}
+
+.elemento{
+   
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+    background-color: rgba(227, 227, 227, 0.326);
+    width: 40%;
+    text-align: center;
+    font-size:30px;
+}
+
+.elemento:onhover{
+    background-color: rgba(227, 227, 227, 0.463);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+}
+
+a{
+	color: black;
+}
+
+ol{
+    list-style-type: none;
+}

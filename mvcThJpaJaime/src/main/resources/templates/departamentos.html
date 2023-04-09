@@ -5,27 +5,37 @@
 
     <meta charset="ISO-8859-1">
     <title>Departamentos</title>
+    <link rel="stylesheet" href="/departamentosEstilo.css"/>
 
 </head>
 
 
 <body>
 
-    <h2>Departamentos</h2>
+    <ol id="listaDepartamentos">
+        <h2>Departamentos</h2>
+        
+            <li   th:each="dep:${departamentos}" >  
+                <div class="elemento">
+                <a th:href="@{'/departamentos/'+${dep.id}}">
+                    <span th:text="${dep.nombre}" th:href="@{'/departamentos/'+${dep.id}}"></span>
+                </a>
+                </div>
+                <br>                     
+                   
+                              
+    </ol>
 
-    <div>
-        <ul>
-            <li th:each="dep:${departamentos}">
-                <span th:text="${dep.nombre}"></span>
-                <a th:href="@{'/departamentos/'+${dep.id}}"><img
-                        src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
-            </li>
-        </ul>
-    </div>
 
-    <h2>Crear Departamento</h2>
 
-    <div>
+   
+
+
+    
+
+    <div id="crearDepartamento">
+        <h2>Crear Departamento</h2>
+
         <form th:action="@{/departamentos}" method="post">
 
             <p>Id: <input type="text" name="id" /></p>
