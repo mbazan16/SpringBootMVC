@@ -10,7 +10,7 @@
 <ul>
 <li th:each="reg:${regiones}">
  	<span th:text="${reg.nombre}"></span>
-    <a th:href="@{'/region/'+${reg.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
+    <a th:href="@{'/regiones/'+${reg.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
  </li>
 </ul>
 </div>
