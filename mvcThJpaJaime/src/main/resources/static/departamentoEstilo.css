@@ -56,3 +56,57 @@ a{
 ol{
     list-style-type: none;
 }
+
+#botonHome{
+	
+	border:none;
+
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
+    background-color: rgba(227, 227, 227, 0.326);
+
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    left: 10%;
+    top: 10%;
+
+}
+
+#imagenHome{
+    width: 50px;
+    height: 50px; 
+
+    position: relative;
+    left: -5px;
+    top: 0px
+
+}
+#botonHome:hover{
+	background-color: rgba(227, 227, 227, 0.463);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+}
+
+#botonDepartamentos{
+	
+	border:none;
+
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  
+    background-color: rgba(227, 227, 227, 0.326);
+
+    width: 180px;
+    height: 50px;
+
+    position: absolute;
+    left: 15%;
+    top: 60%;
+
+    text-decoration: solid;
+
+}
+#botonDepartamentos:hover{
+	background-color: rgba(227, 227, 227, 0.463);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 10px 30px;
+}

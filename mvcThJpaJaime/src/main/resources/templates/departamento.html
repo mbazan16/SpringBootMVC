@@ -28,7 +28,16 @@
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
         </form>
     </div>
-    <h2> <a th:href="@{/departamentos}">Volver a departamentos</a></h2>
+    
+
+    <button id="botonHome" onclick="location.href='/inicio'">
+    	<img id="imagenHome" src="https://static.thenounproject.com/png/3574480-200.png" >
+    </button>
+
+    <button id="botonDepartamentos" onclick="location.href='/departamentos'">
+    	<h2>Departamentos<h2/>
+    </button>
+
 </body>
 
 </html>
