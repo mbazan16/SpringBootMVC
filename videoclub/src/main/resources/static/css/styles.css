@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+
+#botonBuscar {
+  border: 1px solid white;
+  border-color: buttonshadow;
+  color: buttonshadow; 
+}
+
+#cajaBuscar {
+	background-color: buttontext;
+	color: buttonface;
+}
+
+.margen {
+	margin-right: 20px;
+}
+
+.iconos-bajos{
+	margin-top: 10px;
+	margin-left: 4px;
+}
+
+.texto-info{
+	font-family: arial;
+	font-size: large;
+	margin-top: 12px;
+	margin-left: -25px;
+}
