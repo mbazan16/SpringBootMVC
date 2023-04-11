@@ -11,6 +11,7 @@
 <li th:each="dep:${departamentos}">
  	<span th:text="${dep.nombre}"></span>
     <a th:href="@{'/departamentos/'+${dep.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
+    <a th:href="@{'/departamentos/d/'+${dep.id}}"><img src="https://img.icons8.com/ios/50/null/delete-forever--v1.png"/></a>
  </li>
 </ul>
 </div>
