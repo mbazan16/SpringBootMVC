@@ -47,7 +47,7 @@ public class ControladorDepartamentos {
 		return "modificarDepartamento";
 	}
 	
-	@PostMapping
+	@PostMapping("/formulario1")
 	public String grabarDepartamento(@ModelAttribute Departamento departamento,Model model) throws Exception {
 		
 		departamento=servicio.grabar(departamento);
