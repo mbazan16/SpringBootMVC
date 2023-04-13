@@ -39,6 +39,14 @@ public class ControladorDepartamentos {
 		return "departamento";
 	}
 	
+	@GetMapping("/modificarDepartamento/{id}")
+	public String paginaModificar(@PathVariable Integer id,Model model) throws Exception {
+		Departamento departamento = servicio.conseguirPorId(id);
+		
+		model.addAttribute("departamento", departamento);	
+		return "modificarDepartamento";
+	}
+	
 	@PostMapping
 	public String grabarDepartamento(@ModelAttribute Departamento departamento,Model model) throws Exception {
 		

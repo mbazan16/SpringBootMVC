@@ -24,7 +24,7 @@ public class ControladorInicio {
 		return "inicio";
 	}
 	
-	@PostMapping
+	@PostMapping("/departamentos")
 	public String crearDepartamento(@PathVariable Departamento departamento, Model modelo) throws ServicioException  {
 		
 		servicio.grabar(departamento);

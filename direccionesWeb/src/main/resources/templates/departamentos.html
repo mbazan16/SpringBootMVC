@@ -13,22 +13,19 @@
 <body>
 
     <ol id="listaDepartamentos">
-        <h2>Departamentos</h2>
-        
+        <h2>Departamentos</h2>   
             <li   th:each="dep:${departamentos}" >  
                 <div class="elemento">
-                <a th:href="@{'/departamentos/'+${dep.id}}" target="_blank">
-                    <span th:text="${dep.nombre}" th:href="@{'/departamentos/'+${dep.id}}"></span>
-
-                    
-                </a>
+                	<a th:href="@{'/departamentos/'+${dep.id}}">
+                    	<span th:text="${dep.nombre}" th:href="@{'/departamentos/'+${dep.id}}"></span>
+                	</a>
                 </div>
                 <br>                                               
     </ol>
 
 
     
-    <button id="botonHome" onclick="location.href='/inicio'">
+    <button id="botonHome" onclick="location.href='/dw'">
     	<img id="imagenHome" src="https://static.thenounproject.com/png/3574480-200.png" >
     </button>
 

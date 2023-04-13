@@ -10,7 +10,7 @@
 <body>
     
     <div class="caja"> 
-        <h2>Departamento</h2>
+        <h2>Departamento Detalle</h2>
         <p>Id: <span th:text="${departamento.id}"></span></p>
         <p>Nombre: <span th:text="${departamento.nombre}"></span></p>
         <p>Jefe del departamento: <span th:text="${departamento.managerId}"></span></p>
@@ -21,14 +21,18 @@
     
     
 
-    <button id="botonHome" onclick="location.href='/inicio'">
+    <button id="botonHome" onclick="location.href='/dw'">
     	<img id="imagenHome" src="https://static.thenounproject.com/png/3574480-200.png" >
     </button>
 
     <button id="botonDepartamentos" onclick="location.href='/departamentos'">
     	<h2>Departamentos<h2/>
     </button>
-
+        
+    <a  th:href="@{'/departamentos/modificarDepartamento/'+${departamento.id}}">
+    	<button id="botonModificar"><h3>Modificar</h3></button>
+    </a>
+    
 </body>
 
 </html>
