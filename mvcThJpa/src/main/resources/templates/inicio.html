@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h2> <a  th:href="@{/departamentos}">Ver todos los departamentos</a></h2>
+<h2>Ver Departamento</h2>
+<form action="#" th:action="@{/departamento}"  method="post">
+    	<p>Id: <input type="text" name="id" /></p>
+    	<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+<h2>Crear Departamento</h2>
+<div>
+<form action="#" th:action="@{/}" th:object="${departamento}" method="post">
+    	<p>Id: <input type="text" name="id" /></p>
+        <p>Nombre: <input type="text" name="nombre" /></p>
+        <p>Jefe del departamento: <input type="text" name="managerId" /></p>
+        <p>Direccion: <input type="text" name="direccionId" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</div>
+</body>
+</html>

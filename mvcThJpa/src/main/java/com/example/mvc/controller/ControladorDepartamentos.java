@@ -39,15 +39,6 @@ public class ControladorDepartamentos {
 		return "departamento";
 	}
 	
-	@PostMapping
-	public String grabarDepartamento(@ModelAttribute Departamento departamento,Model model) throws Exception {
-		
-		departamento=servicio.grabarDepartamento(departamento);
-		
-		model.addAttribute("departamento", departamento);	
-		return "departamento";
-	}
-	
 	
 	@GetMapping("/d/{id}")
 	public String eliminarDepartamento(@PathVariable Integer id,Model model) throws Exception {
