@@ -17,27 +17,16 @@
         
             <li   th:each="dep:${departamentos}" >  
                 <div class="elemento">
-                <a th:href="@{'/departamentos/'+${dep.id}}">
+                <a th:href="@{'/departamentos/'+${dep.id}}" target="_blank">
                     <span th:text="${dep.nombre}" th:href="@{'/departamentos/'+${dep.id}}"></span>
+
+                    
                 </a>
                 </div>
                 <br>                                               
     </ol>
 
 
-    <div id="crearDepartamento">
-        <h2>Crear Departamento</h2>
-
-        <form th:action="@{/departamentos}" method="post">
-
-            <p>Id: <input type="text" name="id" /></p>
-            <p>Nombre: <input type="text" name="nombre" /></p>
-            <p>Jefe del departamento: <input type="text" name="managerId" /></p>
-            <p>Direccion: <input type="text" name="direccionId" /></p>
-            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-			<br>
-        </form>
-    </div>
     
     <button id="botonHome" onclick="location.href='/inicio'">
     	<img id="imagenHome" src="https://static.thenounproject.com/png/3574480-200.png" >
