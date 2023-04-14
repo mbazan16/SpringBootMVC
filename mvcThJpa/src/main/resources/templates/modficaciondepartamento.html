@@ -7,7 +7,7 @@
 <body>
 <h2>Modificar Departamento</h2>
 <div>
-<form action="#" th:action="@{/departamentos}" th:object="${departamento}" method="post">
+<form action="#" th:action="@{/m/departamentos}" th:object="${departamento}" method="post">
     	<p>Id: <input type="text" th:field="*{id}" /></p>
         <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
         <p>Jefe del departamento: <input type="text" th:field="*{managerId}" /></p>
