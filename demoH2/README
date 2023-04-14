@@ -1,0 +1,94 @@
+Este proyecto es un ejemplo de demostración de varios puntos:
+
+**********  Base de datos H2 y APPLICATION.PROPERTIES  ***************************
+* Se establecen las propiedades para los niveles de trazas tanto de la codificación del 
+  proyecto como del modulo web de Spring.
+  logging.level.com.example=DEBUG
+  logging.level.org.springframework.web=DEBUG
+*  Utiliza la base de datos H2 que es una base de datos embebida, se genera en memoria.
+  También se puede configurar para utilizarla como fichero.
+* Se habilita la consola, spring.h2.console.enabled=true, por defecto esta deshabilitada
+  
+* Contiene datos iniciales:data.sql y schema.sql. Esta configurado de base para utilizar
+  los datos iniciales y que el esquema lo genere hibernate.
+
+* Las tres propiedades con las  que se trabaja para son las siguientes:
+spring.jpa.hibernate.ddl-auto=create
+spring.sql.init.mode=always
+spring.jpa.defer-datasource-initialization=true
+
+----------Configuración en memoria con datos iniciales------------
+Cambiar el nombre del fichero schema.sql a otro nombre cualquiera
+Indicar la propiedad spring.jpa.defer-datasource-initialization=true para que data.sql
+se ejecute después de que Hibernate genere el esquema
+
+Nota: si se quiere que schema.sql genere el esquema indicar la propiedad spring.jpa.hibernate.ddl-auto=none
+
+----------Configuración de fichero------------------------
+Primera vez: Es cuando se puede usar los datos iniciales
+exactamente igual que la configuración en memoria pero también se tiene que indicar
+la propiedad spring.sql.init.mode=always
+Siguientes: Se comentan las propiedades spring.jpa.defer-datasource-initialization=true y
+spring.sql.init.mode=always. Y se cambia la propiedad spring.jpa.hibernate.ddl-auto=update, para
+que solo contemple las posibles modificaciones que se pueden realizar en la base de datos
+
+***************  Entidad Huerto  ***************************
+* Se indican las anotaciones básicas de JPA, @Entity para indicar que es una entidad
+  @Id para indicar que el campo identifica la Primary Key y
+  @GeneratedValue(strategy=GenerationType.IDENTITY) para indicar que el campo va a ser
+  autonumerico
+* En las entidades Huerto y Persona se mapea una relación ManytoMany
+
+***************  HuertoRepository***************************
+* En el repositorio HuertoRepository se muestrar una bateria de ejemplos
+  de generación de querys utilizando varios métodos: 
+  		* NamedQuerys(que se declaran en la entidad)
+  		* Dynamic Querys. utilizan las palabras claves de Repositorio. 
+  		  Son muy potentes y muy utilizadas, se recomienda utilizar la referencia oficial:
+  		 https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repository-query-keywords
+  		 * Querys Nativas. Que se definen con SQL
+  		 * Querys JPQL. Que se definen con JPQL
+  		 * Modifiying querys. Que modifican los datos existentes en la base de datos.
+  Comentarios:
+  	* Los parametros se pueden indicar dentro de la query por su nombre (tomará el
+  	  nombre del indicado por la anotación @Param y si esta anotación no existe
+  	  directamente el nombre parámetro del método.
+  	* O por su posición en los parámetros del método:Ej: ?1 - primer parámetro del método
+
+ Paginas web de referencia:
+ https://www.baeldung.com/spring-data-jpa-query
+ 
+ ***************  TEST ***************************
+ 
+ * Test de Junit Jupiter (Junit 5) para todas las capas de proyecto. 
+   Los test de cada capa varían
+   
+   * En la capa DAO (HuertoRepositoryTest) se realizan los test de todas las querys mostradas
+   
+   		* Se utiliza la anotación @DataJpaTest que nos provee la funcionalidad necesaria para
+   		la generación del entorno de persistencia necesario para realizar los test.
+   		* La anotación	@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+   		  en este caso hay que comentarla porque este proyecto si que utiliza la base de datos H2.
+   		  En caso de utilizar otras bases de datos y querer que los test se generen en ellas
+   		  esta anotación habría que indicarla porque si no Spring va a intentar clonar el esquema
+   		  de base de datos en una base de datos H2 automáticamente.
+   		  
+   		  * Se utilizan los métodos @BeforeEach y @AfterEach a modo aclaratorio para las trazas de cada test
+  
+  	* En la capa de servicios se utiliza las funcionalidades que nos proporciona Spring para generar
+  	  los test @SpringBootTest y la inyección de Mockitos (simulación de clases). 
+  	  Simulamos el repositorio porque queremos probar únicamente la capa de servicio, sino realizaramos esto
+  	  las pruebas dependerían de las dos capas (DAO y Servicios)
+  	  Los comportamientos se simulan con: when(dao.findAll()).thenReturn(listHuertos);
+  	  
+  	 * En la capa web se utiliza la funcionalidad de @WebMvcTest que nos provee todos el entorno
+  	 necesario para simular las condiciones de un marco web HTTP. También utilizamos @MockBean otra forma
+  	 de inyectar las clases simuladas necesarias, en este caso el servicio.
+  	 
+  	 ************************** HUERTO CONTROLLER *******************************
+  	 
+  	 * Aunque la clase esta anotada como @Controller todos los métodos funcionan como "falsos" REST ya que estamos
+  	 utilizando la respuesta para enviar información, lo que hacen los servicios Rest. Los controladores  son servlet
+  	 que necesitan templates o jsp para enviar paginas web bien formada, esta claro que en la respuesta se puede mandar 
+  	 otro tipo de información.
+  	 * Se enumeran varias formas de utilizar la respuesta, mediante @ResponseBody o ResponseEntity.
