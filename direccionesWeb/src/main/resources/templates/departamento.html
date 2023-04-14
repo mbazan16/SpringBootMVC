@@ -5,6 +5,7 @@
     <meta charset="ISO-8859-1">
     <title>Departamento</title>
     <link rel="stylesheet" href="/departamentoEstilo.css">
+    <script src="/scripts.js"></script>
 </head>
 
 <body>
@@ -32,6 +33,10 @@
     <a  th:href="@{'/departamentos/modificarDepartamento/'+${departamento.id}}">
     	<button id="botonModificar"><h3>Modificar</h3></button>
     </a>
+    
+    <button id="botonScript" th:onclick="popupModificar('${departamento.id}}')">
+    	<h3>Modificar</h3>
+    </button>
     
 </body>
 
