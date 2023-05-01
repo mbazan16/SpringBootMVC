@@ -1,0 +1,4 @@
+2022-11-22 20:43:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "MACETA" no encontrada
+Table "MACETA" not found; SQL statement:
+insert into Maceta(name)VALUES('Mi Maceta') [42102-214]
