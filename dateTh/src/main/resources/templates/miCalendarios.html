@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mis Calendarios</title>
+</head>
+<body>
+<h2>Mis Calendarios</h2>
+<div>
+<table>
+<thead>
+<tr>
+ <td>Id</td>
+ <td>Fecha Inicio</td>
+ <td>Fecha Fin</td>
+ <td></td>
+</tr>
+<thead>
+<tbody>
+<tr th:each="miCalendario:${misCalendarios}">
+<td th:text="${miCalendario.id}"/>
+<td th:text="${#temporals.format(miCalendario.fechaInicio, 'dd-MM-yyyy')}" />
+<td th:text="${#dates.format(miCalendario.fechaFin, 'dd-MM-yyyy')}" />
+<td><a th:href="@{'/'+${miCalendario.id}}">Ver</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Crear Calendario</h2>
+<div>
+<form th:action="@{/}" method="post">
+<input type="date" name="fechaInicio"/>
+<input type="date" name="fechaFin"/>
+<button type="submit">Enviar</button>
+</form>
+</div>
+</body>
+</html>

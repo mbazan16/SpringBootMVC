@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mi Calendario</title>
+</head>
+<body>
+<h2>Modificar Calendario</h2>
+<div>
+<form th:action="@{/}" th:object="${miCalendario}" method="post">
+<input type="hidden" th:field="*{id}"/>
+<input type="date" th:field="*{fechaInicio}"/>
+<input type="date" th:field="*{fechaFin}"/>
+<button type="submit">Enviar</button>
+</form>
+</div>
+ <a  th:href="@{/}">Volver a Mis Calendarios</a></h2>
+</body>
+</html>
