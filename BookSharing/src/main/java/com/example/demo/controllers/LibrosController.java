@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.data.Libro;
+import com.example.demo.exceptions.ServicioException;
 import com.example.demo.service.LibroServicio;
 
 @Controller
@@ -19,10 +20,14 @@ public class LibrosController {
 	LibroServicio servicio;
 	
 	@GetMapping
-	public String paginaLibros(Model modelo) {
+	public String paginaLibros(Model modelo) throws ServicioException {
 		
 		List<Libro> listaLibros = servicio.listar();		
-		modelo.addAttribute(listaLibros);
+		modelo.addAttribute("listaLibros",listaLibros);
+		
+		for(Libro libro:listaLibros) {
+			System.out.println(libro.getNombre());
+		}
 		
 		return "paginaLibros";
 	}

@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html>
-
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
-	<meta charset="UTF-8">
-	<title>Listado de libros</title>
-
+    <meta charset="ISO-8859-1">
+    <title>Libros</title>
+    <link rel="stylesheet" href="/lista.css"/>
+    
 </head>
-
 
 <body>
 
-</body>
+  <div class="elementoCentral">
 
+    <div  id="titulo" class="tituloCentral">
+        <h2>Lista libros</h2>
+    </div>
+    <br>
+    <br>
+    <div id="contenedorLista">
+      <table id="lista">
+        <tr>
+          <th>Nombre</th>
+          <th>Autor</th>
+          <th>Tipo</th>
+          <th>Localizacion</th>
+        </tr>
+  
+        <tr th:each="libro:${listaLibros}">
+          <td name="nombre" th:text="${libro.nombre}">algo</td>
+          <td name="autor" th:text="${libro.autor}"></td>
+          <td name="tipo" th:text="${libro.tipo}"></td>
+          <td name="localizacion" th:text="${libro.localizacion}"></td>
+          
+        </tr>
+      </table>
+  
+    </div>
+    </div>
+    
+    
+</body>
 
 </html>

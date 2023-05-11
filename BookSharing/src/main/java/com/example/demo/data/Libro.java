@@ -1,7 +1,5 @@
 package com.example.demo.data;
 
-import com.example.demo.common.Tipo;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +13,7 @@ public class Libro {
 	
 	 
 	@Id
-	@Column(name="Libros")
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
@@ -23,10 +21,13 @@ public class Libro {
 	private String nombre;
 	
 	@Column(name="tipo")
-	private Tipo tipo;
+	private String tipo;
 	
 	@Column(name="localizacion")
 	private String localizacion;
+	
+	@Column(name="autor")
+	private String autor;
 	
 	
 	public Libro() {
@@ -49,11 +50,11 @@ public class Libro {
 		this.nombre = nombre;
 	}
 
-	public Tipo getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(Tipo tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
@@ -63,6 +64,14 @@ public class Libro {
 
 	public void setLocalizacion(String localizacion) {
 		this.localizacion = localizacion;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
 	}
 	
 	
