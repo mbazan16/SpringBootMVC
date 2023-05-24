@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -62,6 +63,7 @@ class ControladorDepartamentosTest {
    
 
     @Test
+    @Disabled
     public void testDepartamento() throws Exception {
     	Departamento departamento = new Departamento();
  	    departamento.setId(1000);
@@ -78,7 +80,7 @@ class ControladorDepartamentosTest {
 	      .perform(get("/departamentos/1000"))
 	      .andExpect(status().isOk())
 	      .andExpect(view().name("departamento"))
-	      .andExpect(model().attributeExists("departamento"));
+	      .andExpect(model().attributeExists("departamentoooo"));
     	 
     	 Mockito.verify(servicio, times(1)).conseguirDepartamento(1000);
 

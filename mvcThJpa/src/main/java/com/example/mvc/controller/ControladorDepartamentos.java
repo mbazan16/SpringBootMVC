@@ -17,7 +17,7 @@ import com.example.mvc.common.exceptions.ServicioException;
 import com.example.mvc.entities.Departamento;
 
 @Controller
-@RequestMapping("/departamentos")
+@RequestMapping(value={"/","/departamentos"})
 public class ControladorDepartamentos {
 	
 	@Autowired
