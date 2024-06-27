@@ -1,29 +1,24 @@
 package com.example.mvc.bussiness;
 
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-
 import java.util.Optional;
 
-import org.hibernate.service.spi.ServiceException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.mvc.common.exceptions.ServicioException;
 import com.example.mvc.entities.Departamento;
 import com.example.mvc.repositories.DepartamentoRepository;
 
 
-@ExtendWith(MockitoExtension.class)
+//@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class ServicioDepartamentoImplTest {
 	
 	

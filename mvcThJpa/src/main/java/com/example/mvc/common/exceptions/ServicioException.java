@@ -13,5 +13,9 @@ public class ServicioException extends Exception {
 	public ServicioException(String codigo) {
 		this.codigo=codigo;
 	}
+	
+	public String getCodigo() {
+		return this.codigo;
+	}
 
 }

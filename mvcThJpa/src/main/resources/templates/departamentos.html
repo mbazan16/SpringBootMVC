@@ -2,27 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Departamentos</title>
+<title th:text="#{title.departamentos}"></title>
 </head>
 <body>
-<h2>Departamentos</h2>
+<h2 th:text="#{title.departamentos}"></h2>
 <div>
-<ul>
+<ul th:if="${departamentos}">
 <li th:each="dep:${departamentos}">
  	<span th:text="${dep.nombre}"></span>
-    <a  th:href="@{'/departamento/'+${dep.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
+    <a  th:href="@{'/departamentos/'+${dep.id}}"><img src="https://img.icons8.com/material-sharp/24/null/zoom-in--v1.png" /></a>
  </li>
 </ul>
 </div>
-<h2>Crear Departamento</h2>
+<h2 th:text="#{title.departamento.crear}"></h2>
 <div>
-<form action="#" th:action="@{/departamentos}"  method="post">
-    	<p>Id: <input type="text" name="id" /></p>
-        <p>Nombre: <input type="text" name="nombre" /></p>
-        <p>Jefe del departamento: <input type="text" name="managerId" /></p>
-        <p>Direccion: <input type="text" name="direccionId" /></p>
+<form th:action="@{/departamentos}"  method="post">
+    	<label for="id" th:text="#{label.id}"></label> 
+    	<input type="text" id="id" name="id" /><br/>  	
+        <label for="nombre" th:text="#{label.nombre}"></label>
+        <input type="text" id="nombre" name="nombre" /><br/>
+        <label for="managerId" th:text="#{label.managerId}"></label>
+        <input type="text" id="managerId" name="managerId" /><br/>
+        <label for="direccionId" th:text="#{label.direccionId}"></label>
+         <input type="text" id="direccionId" name="direccionId" /><br/>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
+</div>
+<div th:if="${msgError}">
+   <h2  th:text="#{title.error}">Error</h2>
+   <h3 th:text="#{${msgError}}"></h3>
 </div>
 </body>
 </html>

@@ -2,17 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Departamentos</title>
+<title th:text="#{title.departamento.crear}"></title>
 </head>
 <body>
 
-<h2>Crear Departamento</h2>
+<h2 th:text="#{title.departamento.crear}"></h2>
 <div>
 <form th:action="@{/departamentos}"  method="post">
-    	<p>Id: <input type="text" name="id" /></p>    	
-        <p>Nombre: <input type="text" name="nombre" /></p>
-        <p>Jefe del departamento: <input type="text" name="managerId" /></p>
-        <p>Direccion: <input type="text" name="direccionId" /></p>
+    	<label for="id" th:text="#{label.id}"></label> 
+    	<input type="text" id="id" name="id" /><br/>  	
+        <label for="nombre" th:text="#{label.nombre}"></label>
+        <input type="text" id="nombre" name="nombre" /><br/> 
+        <label for="managerId" th:text="#{label.managerId}"></label>
+        <input type="text" id="managerId" name="managerId" /><br/> 
+        <label for="direccionId" th:text="#{label.direccionId}"></label>
+         <input type="text" id="direccionId" name="direccionId" /><br/> 
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 </div>
