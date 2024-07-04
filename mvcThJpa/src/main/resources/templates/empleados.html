@@ -2,16 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title th:text="#{title.error}"></title>
+<title th:text="#{title.empleados}"></title>
  <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 <div class="container">
-<div class="th-error" th:if="${msgError}">
-   <h2  th:text="#{title.error}"></h2>
-   <h3 th:text="#{${msgError}}"></h3>
+<h2 th:text="#{title.empleados}"></h2>
+<div>
+<ul th:if="${empleados}">
+<li th:each="emp:${empleados}">
+ 	<span th:text="${emp.nombreCompleto}"></span>
+ </li>
+</ul>
 </div>
 </div>
+
 </body>
 </html>

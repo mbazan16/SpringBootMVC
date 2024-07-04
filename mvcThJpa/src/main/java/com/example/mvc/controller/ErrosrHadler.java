@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -16,6 +17,8 @@ import com.example.mvc.common.exceptions.ServicioException;
 public class ErrosrHadler {
 	Logger log = LoggerFactory.getLogger(ErrosrHadler.class);
 	
+	
+	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public String errorGeneralHadler(Model model) {
@@ -24,6 +27,7 @@ public class ErrosrHadler {
 		model.addAttribute("msgError",MsgError.ERROR_GENERAL );
 		return "error";
 	}
+	
 	
 	@ExceptionHandler(ServicioException.class)	
 	public String servicioExceptionHadler(ServicioException e,Model model) {

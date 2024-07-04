@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+    <title th:text="#{title.empleado.crear}">Create Employee</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+<div class="container">
+    <h1 th:text="#{title.empleado.crear}">Create Employee</h1>
+    <form th:action="@{/empleados}" th:object="${employee}" method="post">
+        <div class="field-container">
+            <label for="firstName" th:text="#{employee.firstName}">First Name</label>
+            <input type="text" id="firstName" th:field="*{firstName}">
+            <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name Error</div>
+        </div>
+        <div class="field-container">
+            <label for="lastName" th:text="#{employee.lastName}">Last Name</label>
+            <input type="text" id="lastName" th:field="*{lastName}">
+            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name Error</div>
+        </div>
+        <div class="field-container">
+            <label for="email" th:text="#{employee.email}">Email</label>
+            <input type="email" id="email" th:field="*{email}">
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+        </div>
+        <div class="field-container">
+            <label for="phoneNumber" th:text="#{employee.phoneNumber}">Phone Number</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}">
+            <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Phone Number Error</div>
+        </div>
+        <div class="field-container">
+            <label for="hireDate" th:text="#{employee.hireDate}">Hire Date</label>
+            <input type="date" id="hireDate" th:field="*{hireDate}">
+            <div th:if="${#fields.hasErrors('hireDate')}" th:errors="*{hireDate}">Hire Date Error</div>
+        </div>
+        <div class="field-container">
+            <label for="salary" th:text="#{employee.salary}">Salary</label>
+            <input type="number" step="0.01" id="salary" th:field="*{salary}">
+            <div th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">Salary Error</div>
+        </div>
+        <div class="field-container">
+            <label for="commissionPct" th:text="#{employee.commissionPct}">Commission Percentage</label>
+            <input type="number" step="0.01" id="commissionPct" th:field="*{commissionPct}">
+            <div th:if="${#fields.hasErrors('commissionPct')}" th:errors="*{commissionPct}">Commission Pct Error</div>
+        </div>
+        <div class="field-container">
+            <label for="departamento" th:text="#{employee.department}">Departamento</label>
+             <select id="departamento" th:field="*{departamento}">
+            	<option th:each="dep:${departamentos}" th:value="${dep.id}" th:text="${dep.nombre}">
+              </select>
+        </div>
+        <div class="field-container">
+            <button type="submit" th:text="#{title.empleado.crear}">Create</button>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

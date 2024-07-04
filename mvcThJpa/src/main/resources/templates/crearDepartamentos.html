@@ -3,22 +3,36 @@
 <head>
 <meta charset="ISO-8859-1">
 <title th:text="#{title.departamento.crear}"></title>
+ <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-
+<div th:insert="~{fragments/header :: header}"></div>
+<div class="container">
 <h2 th:text="#{title.departamento.crear}"></h2>
 <div>
 <form th:action="@{/departamentos}"  method="post">
+   <div class="field-container">
     	<label for="id" th:text="#{label.id}"></label> 
-    	<input type="text" id="id" name="id" /><br/>  	
+    	<input type="text" id="id" name="id" />
+    	
+   </div>
+   <div class="field-container"> 	
         <label for="nombre" th:text="#{label.nombre}"></label>
-        <input type="text" id="nombre" name="nombre" /><br/> 
+        <input type="text" id="nombre" name="nombre" />
+    </div>
+    <div class="field-container">
         <label for="managerId" th:text="#{label.managerId}"></label>
-        <input type="text" id="managerId" name="managerId" /><br/> 
+        <input type="text" id="managerId" name="managerId" /> 
+    </div>
+    <div class="field-container">
         <label for="direccionId" th:text="#{label.direccionId}"></label>
-         <input type="text" id="direccionId" name="direccionId" /><br/> 
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+         <input type="text" id="direccionId" name="direccionId" />
+     </div>
+     <div class="field-container">
+        <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+     </div>
     </form>
+</div>
 </div>
 </body>
 </html>

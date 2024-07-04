@@ -3,8 +3,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title th:text="#{title.departamentos}"></title>
+ <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:insert="~{fragments/header :: header}"></div>
+<div class="container">
 <h2 th:text="#{title.departamentos}"></h2>
 <div>
 <p><span th:text="#{label.id}"></span><span th:text="${departamento.id}"></span></p>
@@ -12,20 +15,33 @@
 <p><span th:text="#{label.managerId}"></span> <span th:text="${departamento.managerId}"></span></p>
 <p><span th:text="#{label.direccionId}"></span> <span th:text="${departamento.direccionId}"></span></p>
 </div>
+</div>
+<div class="container">
 <h2 th:text="#{title.departamento.modificar}"></h2>
 <div>
 <form  th:action="@{/departamentos}" th:object="${departamento}" method="post">
+    <div class="field-container">
     	<label for="id" th:text="#{label.id}"></label> 
-    	<input type="text" th:field="*{id}" /><br/>  
+    	<input type="text" th:field="*{id}" />
+	</div>
+	<div class="field-container">
         <label for="nombre" th:text="#{label.nombre}"></label>
-        <input type="text" th:field="*{nombre}"/><br/>  
+        <input type="text" th:field="*{nombre}"/>
+	</div>
+	<div class="field-container"> 
         <label for="managerId" th:text="#{label.managerId}"></label>
-        <input type="text" th:field="*{managerId}" /><br/>  
+        <input type="text" th:field="*{managerId}" />
+	</div>
+	<div class="field-container"> 
         <label for="direccionId" th:text="#{label.direccionId}"></label>
-        <input type="text" th:field="*{direccionId}" /><br/>  
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+        <input type="text" th:field="*{direccionId}" />
+	</div>
+	<div class="field-container">
+        <input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+    </div>
     </form>
 </div>
 <h2> <a  th:href="@{/departamentos}" th:text="#{msg.go.departamentos}"></a></h2>
+</div>
 </body>
 </html>

@@ -3,11 +3,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title th:text="#{title.error}"></title>
+ <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:insert="~{fragments/header :: header}"></div>
+<div class="container">
 <div th:if="${msgError}">
    <h2  th:text="#{title.error}"></h2>
    <h3 th:text="#{${msgError}}"></h3>
+</div>
 </div>
 </body>
 </html>
