@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title th:text="#{title.empleados}"></title>
  <link rel="stylesheet" th:href="@{/css/style.css}">
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+ <!-- Incluye jQuery -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Incluye el JS de DataTables -->
+ <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#t_empleados').DataTable({
+                paging: false
+            } );
+        });
+    </script>
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
-<div class="container">
+
+<div class="inline-container">
 <h2 th:text="#{title.empleados}"></h2>
+<a th:href="@{/empleados/a}"><img width="50" height="50" src="https://img.icons8.com/ios/50/plus--v1.png" alt="plus--v1"/></a>
+</div>
 <div>
-<ul th:if="${empleados}">
-<li th:each="emp:${empleados}">
- 	<span th:text="${emp.nombreCompleto}"></span>
- </li>
-</ul>
+<table th:if="${empleados}" id="t_empleados" class="display" style="width:100%">
+<thead >
+ 	<tr>
+ 		<th th:text="#{employee.firstName}"></td>
+ 		<th th:text="#{employee.lastName}"></td>
+ 		<th th:text="#{employee.email}"></td>
+ 		<th th:text="#{employee.phoneNumber}"></td>
+ 		<th th:text="#{employee.hireDate}"></td>
+ 		<th th:text="#{employee.salary}"></td>
+ 		<th th:text="#{employee.commissionPct}"></td>
+ 		<th th:text="#{employee.department}"></td>
+ 		<th></th>
+ </tr>
+</thead>
+<tbody>
+	<tr th:each="employee:${empleados}">
+ 		<td th:text="${employee.firstName}"></td>
+ 		<td th:text="${employee.lastName}"></td>
+ 		<td th:text="${employee.email}"></td>
+ 		<td th:text="${employee.phoneNumber}"></td>
+ 		<td th:text="${employee.hireDate}"></td>
+ 		<td th:text="${employee.salary}"></td>
+ 		<td th:text="${employee.commissionPct}"></td>
+ 		<td th:text="${employee.departamento.nombre}"></td>
+ 		<td><a th:href="@{'/empleados/f/'+${employee.id}}"><img width="30" height="30" src="https://img.icons8.com/hatch/64/eye.png" alt="eye"/></a></td>
+ 	</tr>
+ </tbody>
+</table>
+<div th:if="${empleados.totalPages > 0}" class="pagination">
+	<ul class="pagination">
+     <li th:each="pageNumber : ${pageNumbers}">
+    <a th:href="@{/empleados(size=${empleados.size}, page=${pageNumber})}"
+        th:text=${pageNumber}
+        th:class="${pageNumber==empleados.number + 1} ? active"></a>
+        </li>
+     </ul>
 </div>
 </div>
+
 
 </body>
 </html>

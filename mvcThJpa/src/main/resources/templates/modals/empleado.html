@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ficha del Empleado</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Empleados</h1>
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Ver Ficha del Empleado</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Ficha del Empleado</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div th:object="${empleado}">
+                            <p><strong th:text="#{employee.firstName}">First Name:</strong> <span th:text="*{firstName}">John</span></p>
+                            <p><strong th:text="#{employee.lastName}">Last Name:</strong> <span th:text="*{lastName}">Doe</span></p>
+                            <p><strong th:text="#{employee.email}">Email:</strong> <span th:text="*{email}">john.doe@example.com</span></p>
+                            <p><strong th:text="#{employee.phoneNumber}">Phone Number:</strong> <span th:text="*{phoneNumber}">123-456-7890</span></p>
+                            <p><strong th:text="#{employee.hireDate}">Hire Date:</strong> <span th:text="*{hireDate}">2021-01-01</span></p>
+                            <p><strong th:text="#{employee.salary}">Salary:</strong> <span th:text="*{salary}">$5000</span></p>
+                            <p><strong th:text="#{employee.commissionPct}">Commission Percentage:</strong> <span th:text="*{commissionPct}">0.10</span></p>
+                            <p><strong th:text="#{employee.department}">Departmento:</strong> <span th:text="${empleado.departamento.nombre}">10</span></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            $('#myModal').modal('show');
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            $('#myModal').modal('hide');
+        }
+    </script>
+</body>
+</html>

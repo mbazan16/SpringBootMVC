@@ -1,6 +1,7 @@
 package com.example.mvc.bussiness;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.example.mvc.common.exceptions.ServicioException;
 import com.example.mvc.entities.Empleado;
@@ -8,8 +9,10 @@ import com.example.mvc.entities.Empleado;
 
 public interface ServicioEmpleado {
 
-	List<Empleado> listEmpleados() throws ServicioException;
+	Page<Empleado> listEmpleados(Pageable pageable) throws ServicioException;
 	
 	Empleado grabarEmpleado(Empleado empleado)throws ServicioException;
+
+	Empleado getEmpleado(Integer id)throws ServicioException;
 
 }

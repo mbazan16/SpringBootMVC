@@ -24,149 +24,149 @@ import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "EMPLOYEESS")
+@Table(name = "EMPLOYEES")
 public class Empleado {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "employee_id")
-    private Integer employeeId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private Integer id;
 
-    @NotNull
-    @Size(max = 50)
-    @Column(name = "first_name")
-    private String firstName;
+	@NotNull
+	@Size(max = 50)
+	@Column(name = "firstname")
+	private String firstName;
 
-    @NotNull
-    @Size(max = 50)
-    @Column(name = "last_name")
-    private String lastName;
+	@NotNull
+	@Size(max = 50)
+	@Column(name = "lastname")
+	private String lastName;
 
-    @NotNull
-    @Email
-    @Size(max = 50)
-    @Column(name = "email")
-    private String email;
+	@NotNull
+	@Email
+	@Size(max = 50)
+	@Column(name = "email")
+	private String email;
 
-    @Size(max = 20)
-    @Column(name = "phone_number")
-    private String phoneNumber;
+	@Size(max = 20)
+	@Column(name = "phone")
+	private String phoneNumber;
 
-    @NotNull
-    @PastOrPresent
-    @Column(name = "hire_date")
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date hireDate;
+	@NotNull
+	@PastOrPresent
+	@Column(name = "hiredate")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date hireDate;
 
-    
-    @Size(max = 10)
-    @Column(name = "job_id")
-    private String jobId;
+	@Size(max = 10)
+	@Column(name = "jobid")
+	private String jobId;
 
-    @NotNull
-    @DecimalMin(value = "0.0", inclusive = false)
-    @Digits(integer = 8, fraction = 2)
-    @Column(name = "salary")
-    private BigDecimal salary;
+	@NotNull
+	@DecimalMin(value = "0.0", inclusive = false)
+	@Digits(integer = 8, fraction = 2)
+	@Column(name = "salary")
+	private BigDecimal salary;
 
-    @DecimalMin(value = "0.0", inclusive = true)
-    @DecimalMax(value = "1.0", inclusive = true)
-    @Digits(integer = 1, fraction = 2)
-    @Column(name = "commission_pct")
-    private BigDecimal commissionPct;
+	@DecimalMin(value = "0.0", inclusive = true)
+	@DecimalMax(value = "1.0", inclusive = true)
+	@Digits(integer = 1, fraction = 2)
+	@Column(name = "commission")
+	private BigDecimal commissionPct;
 
-    @Column(name = "manager_id")
-    private Integer managerId;
+	@Column(name = "managerid")
+	private Integer managerId;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Departamento departamento;
+	@ManyToOne
+	@JoinColumn(name = "departmentid")
+	private Departamento departamento;
 
-    // Getters and setters
-    public Integer getEmployeeId() {
-        return employeeId;
-    }
+	// Getters and setters
 
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public String getLastName() {
-        return lastName;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    
-    public String getNombreCompleto() {
-        return this.firstName+" "+this.lastName;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getNombreCompleto() {
+		return this.firstName + " " + this.lastName;
+	}
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Date getHireDate() {
-        return hireDate;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public void setHireDate(Date hireDate) {
-        this.hireDate = hireDate;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
-    public String getJobId() {
-        return jobId;
-    }
+	public Date getHireDate() {
+		return hireDate;
+	}
 
-    public void setJobId(String jobId) {
-        this.jobId = jobId;
-    }
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
+	}
 
-    public BigDecimal getSalary() {
-        return salary;
-    }
+	public String getJobId() {
+		return jobId;
+	}
 
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
-    }
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
+	}
 
-    public BigDecimal getCommissionPct() {
-        return commissionPct;
-    }
+	public BigDecimal getSalary() {
+		return salary;
+	}
 
-    public void setCommissionPct(BigDecimal commissionPct) {
-        this.commissionPct = commissionPct;
-    }
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
+	}
 
-    public Integer getManagerId() {
-        return managerId;
-    }
+	public BigDecimal getCommissionPct() {
+		return commissionPct;
+	}
 
-    public void setManagerId(Integer managerId) {
-        this.managerId = managerId;
-    }
+	public void setCommissionPct(BigDecimal commissionPct) {
+		this.commissionPct = commissionPct;
+	}
+
+	public Integer getManagerId() {
+		return managerId;
+	}
+
+	public void setManagerId(Integer managerId) {
+		this.managerId = managerId;
+	}
 
 	public Departamento getDepartamento() {
 		return departamento;
@@ -178,12 +178,10 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "Empleado [employeeId=" + employeeId + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
+		return "Empleado [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email="
 				+ email + ", phoneNumber=" + phoneNumber + ", hireDate=" + hireDate + ", jobId=" + jobId + ", salary="
 				+ salary + ", commissionPct=" + commissionPct + ", managerId=" + managerId + ", departamento="
 				+ departamento + "]";
 	}
 
-    
 }
-
